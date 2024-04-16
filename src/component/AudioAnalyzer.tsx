@@ -86,7 +86,7 @@ const AudioAnalyzer: React.FC<IAudioAnalyzer> = ({
           setSoundPatterns((prevPatterns) => {
             const updatedPatterns = [...prevPatterns, newPattern];
 
-            if (updatedPatterns.length > 100) {
+            if (updatedPatterns.length > 150) {
               setFinish(true);
             }
             return updatedPatterns; // Menyimpan 5000 pola terakhir
@@ -157,7 +157,7 @@ const AudioAnalyzer: React.FC<IAudioAnalyzer> = ({
 
   useEffect(() => {
     start !== undefined && captureComponent();
-  }, [clicked]);
+  }, [clicked, start]);
 
   useEffect(() => {
     setSoundPatterns([...[]]);
