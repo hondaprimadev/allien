@@ -2,7 +2,7 @@
     "name": "Allien HSO Semarang",
     "short_name": "Allien HSO Semarang",
     "description": "Aplikasi engine sound",
-    "theme_color": "#ffffff",
+    "theme_color": "#030f1b",
     "icons": [
       {
         "src": "pwa-192x192.png",

@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import AudioAnalyzer from "./component/AudioAnalyzer";
 import { useEffect, useState } from "react";
+import LoginForm from "./component/LoginForm";
 
 function App() {
   const [hertzCounter, setHertzCounter] = useState(0);
@@ -29,12 +30,14 @@ function App() {
 
   return (
     <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap={2}>
-      <GridItem w="100%"></GridItem>
+      <GridItem w="100%">
+        <LoginForm />
+      </GridItem>
       <GridItem w="100%">
         <Box style={{ height: "100vh" }}>
-          <Text fontSize={28} textAlign={"center"}>
+          {/* <Text fontSize={28} textAlign={"center"}>
             Sound Analyzer
-          </Text>
+          </Text> */}
           <Card style={{ margin: 10 }}>
             <CardBody>
               <AudioAnalyzer
