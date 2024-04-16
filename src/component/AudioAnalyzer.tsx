@@ -156,8 +156,13 @@ const AudioAnalyzer: React.FC<IAudioAnalyzer> = ({
   }, [soundPatterns, analyser, colorIndex, start]);
 
   useEffect(() => {
-    start !== undefined && captureComponent();
-  }, [clicked, start]);
+    clicked && captureComponent();
+    const clickAct = setTimeout(() => {
+      setClicked(false);
+    }, 1000);
+
+    return () => clearTimeout(clickAct);
+  }, [clicked]);
 
   useEffect(() => {
     setSoundPatterns([...[]]);

@@ -41,7 +41,7 @@ function App() {
   }, [finish]);
 
   const onClickDownload = () => {
-    setClicked(!clicked);
+    setClicked(true);
   };
 
   const onClickReset = () => {
