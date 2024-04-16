@@ -15,7 +15,7 @@ const LoginForm = () => {
   return (
     <Box maxW="md" mx="auto" marginEnd={10} marginStart={10}>
       <Text textAlign={"center"} marginTop={10}>
-        QCC Teknin Allien
+        QCC Teknik Allien
       </Text>
       <Text fontSize={26} textAlign={"center"}>
         Pendeteksi Suara Mesin

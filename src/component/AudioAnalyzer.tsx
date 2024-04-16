@@ -5,6 +5,7 @@ interface IAudioAnalyzer {
   hertzCounter(number: number): void;
   start?: boolean;
   clicked?: boolean;
+  reset?: boolean;
   setFinish(finish: boolean): void;
   setClicked(clicked: boolean): void;
 }
@@ -14,6 +15,7 @@ const AudioAnalyzer: React.FC<IAudioAnalyzer> = ({
   start,
   setFinish,
   clicked,
+  reset,
   setClicked,
 }) => {
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
@@ -154,15 +156,12 @@ const AudioAnalyzer: React.FC<IAudioAnalyzer> = ({
   }, [soundPatterns, analyser, colorIndex, start]);
 
   useEffect(() => {
-    if (clicked) {
-      setSoundPatterns([...[]]);
-      captureComponent();
-    }
-    const clickedAct = setTimeout(() => {
-      setClicked(false);
-    }, 1000);
-    return () => clearTimeout(clickedAct);
+    start !== undefined && captureComponent();
   }, [clicked]);
+
+  useEffect(() => {
+    setSoundPatterns([...[]]);
+  }, [reset]);
 
   const captureComponent = () => {
     if (componentRef.current) {
@@ -170,7 +169,7 @@ const AudioAnalyzer: React.FC<IAudioAnalyzer> = ({
         const dataUrl = _canvas.toDataURL();
         const link = document.createElement("a");
         link.href = dataUrl;
-        link.download = "screenshot.png";
+        link.download = "sample.png";
         link.click();
       });
     }
